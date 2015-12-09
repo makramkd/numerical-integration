@@ -1,8 +1,12 @@
 #include <iostream>
+#include "integrate.hpp"
 
-using namespace std;
+double f(double x) {
+    return x * x;
+}
 
 int main() {
-    cout << "Hello, World!" << endl;
-    return 0;
+    auto value = in::rectangle_rule(f, 0.0, 1.0);
+
+    std::cout << value << std::endl;
 }
