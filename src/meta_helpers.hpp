@@ -5,6 +5,8 @@
 #ifndef SRC_META_HELPERS_HPP
 #define SRC_META_HELPERS_HPP
 
+#include <type_traits>
+
 /**
  * A set of helpers that allow us to do some
  * compile time checks before instantiating
@@ -36,6 +38,15 @@ namespace in {
     struct return_type<Ret(Args...)>
     {
         using type = Ret;
+    };
+
+    // check for unary functions of signature
+    // f : R -> R where R is a floating point type
+    template<typename Float, typename Func>
+    struct is_unary_arithmetic {
+        static constexpr auto value = std::is_floating_point<Float>::value &&
+                                      (arity_of<Func>::value == 1) &&
+                std::is_floating_point<typename return_type<Func>::type>::value;
     };
 }
 #endif //SRC_META_HELPERS_HPP
