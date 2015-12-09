@@ -5,7 +5,6 @@
 #ifndef SRC_RECTANGLE_RULE_HPP
 #define SRC_RECTANGLE_RULE_HPP
 
-#include <type_traits>
 #include "meta_helpers.hpp"
 
 namespace in {
@@ -15,12 +14,10 @@ namespace in {
      * rectangle rule.
      */
     template<typename Float, typename Func>
-    typename std::enable_if<std::is_floating_point<Float>::value &&
-            (arity_of<Func>::value == 1) && std::is_floating_point<typename return_type<Func>::type>::value
-            , Float>::type
-            rectangle_rule(const Func& f, Float a, Float b)
+    typename std::enable_if<is_unary_arithmetic<Float, Func>::value, Float>::type
+    rectangle_rule(const Func& f, Float a, Float b)
     {
-        return (b - a) * f((a + b) / 2);
+        return (b - a) * f((a + b) / static_cast<Float>(2));
     }
 }
 #endif //SRC_RECTANGLE_RULE_HPP
