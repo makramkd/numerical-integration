@@ -3,5 +3,5 @@ project(src)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(SOURCE_FILES main.cpp integrate.hpp rectangle_rule.hpp meta_helpers.hpp trapezoidal_rule.hpp simpsons_rule.hpp)
+set(SOURCE_FILES main.cpp integrate.hpp rectangle_rule.hpp meta_helpers.hpp trapezoidal_rule.hpp simpsons_rule.hpp iterated_rule.hpp linspace.hpp)
 add_executable(src ${SOURCE_FILES})
