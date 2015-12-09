@@ -7,7 +7,7 @@
 
 #include <vector>
 
-namespace in {
+namespace math {
 
     /**
      * Given two numbers a and b with b > a,
@@ -23,7 +23,7 @@ namespace in {
 
         std::vector<std::pair<T, T>> intervals;
         auto start = a;
-        while (start < b)
+        while (start < b && !(start + inc > b))
         {
             intervals.push_back(std::make_pair(start, start + inc));
             start = start + inc;
