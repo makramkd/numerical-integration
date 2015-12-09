@@ -7,5 +7,6 @@
 
 // include all integration headers
 #include "rectangle_rule.hpp"
+#include "trapezoidal_rule.hpp"
 
 #endif //SRC_INTEGRATE_HPP
