@@ -20,10 +20,10 @@ namespace in {
     {
         auto intervals = math::linspace(a, b, pieces);
         std::vector<Float> partials;
-        for (auto i = intervals.begin(); i != intervals.end(); ++i)
-        {
-            partials.push_back(rectangle_rule(f, i->first, i->second));
-        }
+
+        std::for_each(intervals.begin(), intervals.end(), [&partials,&f](const std::pair<Float, Float>& pair) {
+            partials.push_back(rectangle_rule(f, pair.first, pair.second));
+        });
 
         return std::accumulate(partials.begin(), partials.end(), static_cast<Float>(0.0));
     }
@@ -34,10 +34,10 @@ namespace in {
     {
         auto intervals = math::linspace(a, b, pieces);
         std::vector<Float> partials;
-        for (auto i = intervals.begin(); i != intervals.end(); ++i)
-        {
-            partials.push_back(rectangle_rule(f, i->first, i->second));
-        }
+
+        std::for_each(intervals.begin(), intervals.end(), [&partials, &f](const std::pair<Float, Float>& pair) {
+            partials.push_back(trapezoidal_rule(f, pair.first, pair.second));
+        });
 
         return std::accumulate(partials.begin(), partials.end(), static_cast<Float>(0.0));
     }
