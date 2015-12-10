@@ -9,5 +9,6 @@
 #include "rectangle_rule.hpp"
 #include "trapezoidal_rule.hpp"
 #include "simpsons_rule.hpp"
+#include "iterated_rule.hpp"
 
 #endif //SRC_INTEGRATE_HPP
