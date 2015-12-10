@@ -1,6 +1,5 @@
 #include <iostream>
 #include "integrate.hpp"
-#include "linspace.hpp"
 
 double f(double x) {
     return x * x;
@@ -18,4 +17,6 @@ int main() {
     std::cout << "rectangle rule: " << value << std::endl;
     std::cout << "trapezoidal rule: " << tvalue << std::endl;
     std::cout << "simpson's rule: " << svalue << std::endl;
+    std::cout << "iterated rectangle: " << irvalue << "\n";
+    std::cout << "iterated trapezoidal: " << itvalue << "\n";
 }
