@@ -6,6 +6,7 @@
 #define SRC_ITERATED_RULE_HPP
 
 #include <numeric>
+#include <algorithm>
 
 #include "meta_helpers.hpp"
 #include "trapezoidal_rule.hpp"
